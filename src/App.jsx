@@ -42,23 +42,25 @@ function App() {
 
   if (!data) return;
 
+  console.log(data.hourlyData)
+
   return (
     <div className="app">
       <div className="featured-data">
-        <FeaturedData />
+        <FeaturedData cityName="Milsugi" />
       </div>
 
       <div className="temperature-display">
-        <WeatherIcon />
+        <WeatherIcon weatherCode={data.weatherCode}/>
       </div>
       <div className="main-data">
-        <MainData />
+        <MainData temperature={data.temperature} appTemperature={data.apparentTemperature} />
       </div>
       <div className="time-data">
-        <TimeData />
+        <TimeData date={data.time} />
       </div>
-      <div className="forecast">
-        <Forecast />
+      < div className="forecast">
+        <Forecast hourlyData={data.hourlyData} />
       </div>
     </div>
   );
